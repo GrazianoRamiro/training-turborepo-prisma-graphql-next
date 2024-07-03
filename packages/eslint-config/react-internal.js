@@ -13,13 +13,14 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
+    'plugin:prettier/recommended',
     'turbo'
   ],
   parser: '@typescript-eslint/parser',
   plugins: [
     'only-warn',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'prettier'
   ],
   globals: {
     React: true,
@@ -52,7 +53,7 @@ module.exports = {
     },
   ],
   rules: {
-    quotes: ['error', 'single'],
+    'prettier/prettier': 'warn',
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
