@@ -14,14 +14,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'turbo'
+    'turbo',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: [
-    'only-warn',
-    '@typescript-eslint',
-    'prettier'
-  ],
+  plugins: ['only-warn', '@typescript-eslint', 'prettier'],
   globals: {
     React: true,
     JSX: true,
