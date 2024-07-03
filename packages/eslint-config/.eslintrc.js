@@ -13,12 +13,6 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: "module",
   },
-  rules: {
-    semi: ["error", "always"],
-    quotes: ["error", "single"],
-    indent: ["error", 2], // js files
-    "@typescript-eslint/indent": ["error", 2], // ts files
-  },
   overrides: [
     {
       files: ["./*.js"],
