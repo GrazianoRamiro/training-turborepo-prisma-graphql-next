@@ -1,6 +1,6 @@
-const { resolve } = require('node:path');
+const { resolve } = require('node:path')
 
-const project = resolve(process.cwd(), 'tsconfig.json');
+const project = resolve(process.cwd(), 'tsconfig.json')
 
 /*
  * This is a custom ESLint configuration for use with
@@ -13,14 +13,11 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'turbo'
+    'plugin:prettier/recommended',
+    'turbo',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: [
-    'only-warn',
-    '@typescript-eslint'
-  ],
+  plugins: ['only-warn', '@typescript-eslint', 'prettier'],
   globals: {
     React: true,
     JSX: true,
@@ -52,19 +49,6 @@ module.exports = {
     },
   ],
   rules: {
-    quotes: ['error', 'single'],
-    '@typescript-eslint/member-delimiter-style': [
-      'error',
-      {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: true,
-        },
-      },
-    ],
+    'prettier/prettier': 'warn',
   },
-};
+}
