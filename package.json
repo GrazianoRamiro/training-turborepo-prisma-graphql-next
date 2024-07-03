@@ -6,12 +6,12 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "turbo test",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json}\" --log-level warn",
     "prepare": "husky"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "prettier --write"
+      "prettier --write --log-level warn"
     ]
   },
   "devDependencies": {
