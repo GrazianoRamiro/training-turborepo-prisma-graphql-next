@@ -12,8 +12,7 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --max-warnings 0",
-      "git add"
+      "eslint --max-warnings 0"
     ]
   },
   "devDependencies": {
