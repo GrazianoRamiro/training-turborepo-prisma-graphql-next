@@ -1,0 +1,141 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Season {
+  id                Int                @id @default(autoincrement())
+  name              String
+  dateFrom          DateTime
+  dateTo            DateTime
+  leagues           League[]
+  seasonPlayerTeams SeasonPlayerTeam[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model League {
+  id        Int              @id @default(autoincrement())
+  name      String           @unique
+  seasonId  Int
+  Season    Season           @relation(fields: [seasonId], references: [id])
+  matches   Match[]
+  positions LeaguePosition[]
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model LeaguePosition {
+  id             Int      @id @default(autoincrement())
+  leagueId       Int
+  league         League   @relation(fields: [leagueId], references: [id])
+  teamId         Int
+  team           Team     @relation(fields: [teamId], references: [id])
+  playedMatches  Int      @default(0)
+  points         Int      @default(0)
+  wins           Int      @default(0)
+  draws          Int      @default(0)
+  losses         Int      @default(0)
+  goalDifference Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Team {
+  id             Int                @id @default(autoincrement())
+  name           String             @unique
+  players        SeasonPlayerTeam[]
+  matchesHome    Match[]            @relation("HomeMatches")
+  matchesAway    Match[]            @relation("AwayMatches")
+  leaguePosition LeaguePosition[]
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+}
+
+model Player {
+  id        Int                @id @default(autoincrement())
+  name      String
+  position  String
+  events    MatchEvent[]
+  teams     SeasonPlayerTeam[]
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+}
+
+model SeasonPlayerTeam {
+  id        Int      @id @default(autoincrement())
+  seasonId  Int
+  season    Season   @relation(fields: [seasonId], references: [id])
+  teamId    Int
+  team      Team     @relation(fields: [teamId], references: [id])
+  playerId  Int
+  player    Player   @relation(fields: [playerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Match {
+  id         Int          @id @default(autoincrement())
+  leagueId   Int
+  league     League       @relation(fields: [leagueId], references: [id])
+  status     MatchStatus
+  date       DateTime
+  location   String
+  homeTeamId Int
+  homeTeam   Team         @relation("HomeMatches", fields: [homeTeamId], references: [id])
+  awayTeamId Int
+  awayTeam   Team         @relation("AwayMatches", fields: [awayTeamId], references: [id])
+  homeScore  Int          @default(0)
+  awayScore  Int          @default(0)
+  events     MatchEvent[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+}
+
+enum MatchStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  IN_HALF_TIME
+  FINISHED
+  SUSPENDED
+}
+
+model MatchEvent {
+  id          Int       @id @default(autoincrement())
+  matchId     Int
+  match       Match     @relation(fields: [matchId], references: [id])
+  playerId    Int?
+  player      Player?   @relation(fields: [playerId], references: [id])
+  type        EventType
+  matchMinute Int
+  details     String?
+  createdAt   DateTime  @default(now())
+}
+
+enum EventType {
+  GOAL
+  ASSIST
+  YELLOW_CARD
+  RED_CARD
+  SUBSTITUTION_IN
+  SUBSTITUTION_OUT
+}
