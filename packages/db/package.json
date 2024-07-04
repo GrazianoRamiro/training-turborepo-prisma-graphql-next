@@ -17,6 +17,6 @@
     "@repo/typescript-config": "*",
     "dotenv-cli": "^7.4.2",
     "prisma": "^5.16.1",
-    "typescript": "^5.5.3"
+    "typescript": "^5.3.3"
   }
 }
