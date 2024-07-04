@@ -16,6 +16,12 @@
       "cache": false,
       "persistent": true
     },
-    "test": {}
+    "test": {},
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    }
   }
 }

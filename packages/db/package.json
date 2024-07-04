@@ -1,0 +1,19 @@
+{
+  "name": "@repo/db",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "db:generate": "dotenv -e ../../.env -e .env -- prisma generate",
+    "db:push": "dotenv -e ../../.env -e .env -- prisma db push --skip-generate"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.1"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.4.2",
+    "prisma": "^5.16.1"
+  }
+}
