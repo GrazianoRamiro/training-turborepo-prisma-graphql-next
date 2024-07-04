@@ -5,6 +5,8 @@
   "scripts": {
     "db:generate": "dotenv -e ../../.env -e .env -- prisma generate",
     "db:push": "dotenv -e ../../.env -e .env -- prisma db push --skip-generate",
+    "db:migrate:dev": "dotenv -e ../../.env -e .env -- prisma migrate dev",
+    "db:studio": "dotenv -e ../../.env -e .env -- prisma studio",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --max-warnings 0"
   },
