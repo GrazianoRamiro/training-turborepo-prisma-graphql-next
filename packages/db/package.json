@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "db:generate": "dotenv -e ../../.env -e .env -- prisma generate",
-    "db:push": "dotenv -e ../../.env -e .env -- prisma db push --skip-generate",
-    "db:migrate:dev": "dotenv -e ../../.env -e .env -- prisma migrate dev",
-    "db:studio": "dotenv -e ../../.env -e .env -- prisma studio",
+    "db:generate": "dotenv -e ../../.env -- prisma generate",
+    "db:push": "dotenv -e ../../.env -- prisma db push --skip-generate",
+    "db:migrate:dev": "dotenv -e ../../.env -- prisma migrate dev",
+    "db:studio": "dotenv -e ../../.env -- prisma studio",
+    "build": "tsc --noEmit false",
     "lint": "eslint . --max-warnings 0",
-    "lint:fix": "eslint . --fix --max-warnings 0",
-    "build": "tsc --noEmit false"
+    "lint:fix": "eslint . --fix --max-warnings 0"
   },
   "main": "./dist/index.js",
   "types": "./src/index.ts",
