@@ -6,8 +6,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { PrismaService } from './services/prisma.service';
 import { schema } from './graphql/schema';
 import { createContext } from './app.context';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 import { join } from 'path';
 
@@ -23,7 +21,7 @@ import { join } from 'path';
       envFilePath: [join(__dirname, '../../../.env')],
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService, PrismaService],
+  controllers: [],
+  providers: [PrismaService],
 })
 export class AppModule {}
