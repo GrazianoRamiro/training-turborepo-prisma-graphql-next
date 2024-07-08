@@ -31,8 +31,6 @@
     "@repo/db": "*",
     "apollo-server-express": "^3.13.0",
     "graphql": "^16.9.0",
-    "nexus": "^1.3.0",
-    "nexus-prisma": "^2.0.5",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
