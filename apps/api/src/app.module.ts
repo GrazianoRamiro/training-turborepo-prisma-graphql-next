@@ -3,25 +3,22 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule } from '@nestjs/config';
 
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { PrismaService } from './services/prisma.service';
-import { schema } from './graphql/schema';
-import { createContext } from './app.context';
 
 import { join } from 'path';
+import { UserModule } from './users/user.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      schema,
-      context: createContext,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: [join(__dirname, '../../../.env')],
     }),
+    UserModule,
   ],
   controllers: [],
-  providers: [PrismaService],
 })
 export class AppModule {}
