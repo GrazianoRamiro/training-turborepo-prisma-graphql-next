@@ -5,7 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 import { join } from 'path';
-import { UserModule } from './users/user.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { UserModule } from './users/user.module';
       isGlobal: true,
       envFilePath: [join(__dirname, '../../../.env')],
     }),
-    UserModule,
+    UsersModule,
   ],
   controllers: [],
 })
