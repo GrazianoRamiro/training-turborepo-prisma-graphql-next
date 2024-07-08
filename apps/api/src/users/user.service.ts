@@ -1,37 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import User from './user.model';
+import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class UserService {
-  private users: User[] = [
-    {
-      id: 1,
-      email: 'email',
-      password: '123',
-      name: 'John Doe',
-      createdAt: undefined,
-      updatedAt: undefined,
-    },
-    {
-      id: 2,
-      email: 'email',
-      password: '123',
-      name: 'John Doe 2',
-      createdAt: undefined,
-      updatedAt: undefined,
-    },
-  ];
+  private databaseService: DatabaseService;
 
-  findAll(): User[] {
-    return this.users;
+  constructor(databaseService: DatabaseService) {
+    this.databaseService = databaseService;
   }
 
-  findOne(id: number): User {
-    return this.users.find((user) => user.id === id);
+  findAll(): Promise<User[]> {
+    return this.databaseService.client.user.findMany();
   }
 
-  create(user: User): User {
-    this.users.push(user);
-    return user;
+  findOne(id: number): Promise<User> {
+    return this.databaseService.client.user.findUnique({ where: { id } });
   }
 }
