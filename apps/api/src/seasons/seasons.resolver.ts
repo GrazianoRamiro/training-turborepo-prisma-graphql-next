@@ -4,11 +4,7 @@ import { SeasonsService } from './seasons.service';
 
 @Resolver(() => Season)
 export class SeasonsResolver {
-  private seasonsService: SeasonsService;
-
-  constructor(seasonsService: SeasonsService) {
-    this.seasonsService = seasonsService;
-  }
+  constructor(private readonly seasonsService: SeasonsService) {}
 
   @Query(() => [Season])
   seasons() {

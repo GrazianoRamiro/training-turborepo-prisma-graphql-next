@@ -4,10 +4,7 @@ import { MatchEventsService } from './match-events.service';
 
 @Resolver(() => MatchEvent)
 export class MatchEventsResolver {
-  private matchEventsService: MatchEventsService;
-  constructor(matchEventsService: MatchEventsService) {
-    this.matchEventsService = matchEventsService;
-  }
+  constructor(private readonly matchEventsService: MatchEventsService) {}
 
   @Query(() => [MatchEvent])
   matchEvents() {

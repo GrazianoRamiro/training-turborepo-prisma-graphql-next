@@ -4,11 +4,7 @@ import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class UsersService {
-  private databaseService: DatabaseService;
-
-  constructor(databaseService: DatabaseService) {
-    this.databaseService = databaseService;
-  }
+  constructor(private readonly databaseService: DatabaseService) {}
 
   findAll(): Promise<User[]> {
     return this.databaseService.client.user.findMany();

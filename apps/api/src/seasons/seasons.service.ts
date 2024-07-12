@@ -4,11 +4,7 @@ import { Season } from './seasons.model';
 
 @Injectable()
 export class SeasonsService {
-  private databaseService: DatabaseService;
-
-  constructor(databaseService: DatabaseService) {
-    this.databaseService = databaseService;
-  }
+  constructor(private readonly databaseService: DatabaseService) {}
 
   findAll(): Promise<Season[]> {
     return this.databaseService.client.season.findMany();

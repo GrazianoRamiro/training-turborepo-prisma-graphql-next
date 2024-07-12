@@ -4,11 +4,7 @@ import { TeamsService } from './teams.service';
 
 @Resolver(() => Team)
 export class TeamsResolver {
-  private teamsService: TeamsService;
-
-  constructor(teamsService: TeamsService) {
-    this.teamsService = teamsService;
-  }
+  constructor(private readonly teamsService: TeamsService) {}
 
   @Query(() => [Team])
   teams() {

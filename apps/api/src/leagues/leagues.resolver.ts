@@ -4,11 +4,7 @@ import { LeaguesService } from './leagues.service';
 
 @Resolver(() => League)
 export class LeaguesResolver {
-  private leaguesService: LeaguesService;
-
-  constructor(leaguesService: LeaguesService) {
-    this.leaguesService = leaguesService;
-  }
+  constructor(private readonly leaguesService: LeaguesService) {}
 
   @Query(() => [League])
   leagues() {

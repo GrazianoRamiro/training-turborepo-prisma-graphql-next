@@ -4,11 +4,7 @@ import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class PlayersService {
-  private databaseService: DatabaseService;
-
-  constructor(databaseService: DatabaseService) {
-    this.databaseService = databaseService;
-  }
+  constructor(private readonly databaseService: DatabaseService) {}
 
   findAll(): Promise<Player[]> {
     return this.databaseService.client.player.findMany();

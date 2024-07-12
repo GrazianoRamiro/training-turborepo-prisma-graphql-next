@@ -4,11 +4,7 @@ import { PlayersService } from './players.service';
 
 @Resolver(() => Player)
 export class PlayersResolver {
-  private playersService: PlayersService;
-
-  constructor(playersService: PlayersService) {
-    this.playersService = playersService;
-  }
+  constructor(private readonly playersService: PlayersService) {}
 
   @Query(() => [Player])
   players() {
