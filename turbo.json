@@ -21,6 +21,7 @@
       "persistent": true
     },
     "test": {},
+    "test:e2e": {},
     "db:generate": {
       "cache": false
     },
