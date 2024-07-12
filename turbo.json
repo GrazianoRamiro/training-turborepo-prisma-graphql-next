@@ -16,7 +16,7 @@
       "dependsOn": ["^lint:fix"]
     },
     "dev": {
-      "dependsOn": ["^db:generate"],
+      "dependsOn": ["^db:generate", "^@repo/db#build"],
       "cache": false,
       "persistent": true
     },
