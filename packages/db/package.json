@@ -7,7 +7,7 @@
     "db:push": "dotenv -e ../../.env -- prisma db push --skip-generate",
     "db:migrate:dev": "dotenv -e ../../.env -- prisma migrate dev",
     "db:studio": "dotenv -e ../../.env -- prisma studio",
-    "build": "tsc --noEmit false",
+    "build": "tsc",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --max-warnings 0"
   },
