@@ -6,14 +6,15 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+env:
+  API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
+  API_FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_API_KEY }}
+
 jobs:
   build:
     name: Build and Test
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    env:
-      API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
-      API_FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_API_KEY }}
     # To use Remote Caching, uncomment the next lines. https://turbo.build/repo/docs/guides/ci-vendors/github-actions
     # env:
     #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
