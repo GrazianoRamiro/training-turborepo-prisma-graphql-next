@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
     types: [opened, synchronize]
 
@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "yarn"
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn
@@ -35,6 +35,9 @@ jobs:
         run: yarn build
 
       - name: Test
+        env:
+          API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
+          API_FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_API_KEY }}
         run: yarn test
 
       - name: Test e2e
