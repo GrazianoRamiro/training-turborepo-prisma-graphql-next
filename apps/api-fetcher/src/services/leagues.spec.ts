@@ -5,7 +5,6 @@ describe('LeaguesService', () => {
   describe('Integration Tests', () => {
     it('should fetch leagues successfully from the real API', async () => {
       const leagues = await leaguesService.fetchLeagues();
-      console.log(leagues);
       expect(leagues).toBeDefined();
       expect(Array.isArray(leagues)).toBe(true);
     });
