@@ -1,12 +1,14 @@
 import axios, { AxiosInstance } from 'axios';
 
+console.log('Initial URL', process.env.API_FOOTBALL_BASE_URL);
+console.log('Initial KEY', process.env.API_FOOTBALL_API_KEY);
+
 class FootballService {
   axiosInstance: AxiosInstance;
 
   constructor() {
-    console.log('CONSTRUCTOR BUILDING HERE');
-    console.log('URL', process.env.API_FOOTBALL_BASE_URL);
-    console.log('KEY', process.env.API_FOOTBALL_API_KEY);
+    console.log('CONSTRUCTOR URL', process.env.API_FOOTBALL_BASE_URL);
+    console.log('CONSTRUCTOR KEY', process.env.API_FOOTBALL_API_KEY);
 
     this.axiosInstance = axios.create({
       baseURL: process.env.API_FOOTBALL_BASE_URL,
