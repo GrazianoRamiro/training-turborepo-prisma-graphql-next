@@ -12,8 +12,6 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     env:
-      API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
-      API_FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_API_KEY }}
       DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
 
     steps:
@@ -27,12 +25,6 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-
-      - name: Print environment variables
-        run: |
-          echo "API_FOOTBALL_BASE_URL: $API_FOOTBALL_BASE_URL"
-          echo "API_FOOTBALL_API_KEY: $API_FOOTBALL_API_KEY"
-          echo "DOTENV_KEY: $DOTENV_KEY"
 
       - name: Install dependencies
         run: yarn
