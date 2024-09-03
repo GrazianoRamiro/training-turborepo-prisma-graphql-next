@@ -8,6 +8,7 @@ const envPath = path.resolve(__dirname, '../../../.env');
 if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
 } else {
+  dotenv.config();
   console.log('Jest URL', process.env.API_FOOTBALL_BASE_URL);
   console.log('Jest KEY', process.env.API_FOOTBALL_API_KEY);
   console.log('No .env file found, relying on environment variables.');
