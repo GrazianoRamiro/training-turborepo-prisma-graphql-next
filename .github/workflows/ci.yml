@@ -41,7 +41,7 @@ jobs:
         run: yarn build
 
       - name: Test
-        run: DOTENV_KEY=$DOTENV_KEY yarn test
+        run: yarn test
 
       - name: Test e2e
         run: yarn test:e2e
