@@ -41,7 +41,13 @@ class LeaguesService {
           seasons: seasons.filter((season) => season.year >= 2023),
         }));
 
-      this.updateLeaguesOnJson(filteredResponse);
+      const shouldStoreJson =
+        process.env.STORE_LEAGUES_JSON &&
+        process.env.STORE_LEAGUES_JSON !== 'false';
+
+      if (shouldStoreJson) {
+        this.updateLeaguesOnJson(filteredResponse);
+      }
 
       return filteredResponse;
     } catch (error) {
