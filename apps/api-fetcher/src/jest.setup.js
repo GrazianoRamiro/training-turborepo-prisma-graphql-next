@@ -8,6 +8,7 @@ const path = require('path');
 // if (fs.existsSync(envPath)) {
 //   dotenv.config({ path: envPath });
 // } else {
+console.log('DOTENV_KEY', process.env.DOTENV_KEY);
 dotenv.config({
   path: path.resolve(__dirname, '../../../.env.vault'),
 });
