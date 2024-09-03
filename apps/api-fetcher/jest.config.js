@@ -8,4 +8,5 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   collectCoverageFrom: ['**/*.{ts,tsx}', '!**/node_modules/**', '!**/dist/**'],
+  setupFiles: ['./jest.setup.js'],
 };
