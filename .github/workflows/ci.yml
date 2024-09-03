@@ -15,10 +15,6 @@ jobs:
       API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
       API_FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_API_KEY }}
       DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
-    # To use Remote Caching, uncomment the next lines. https://turbo.build/repo/docs/guides/ci-vendors/github-actions
-    # env:
-    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-    #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
     steps:
       - name: Check out code
@@ -36,6 +32,7 @@ jobs:
         run: |
           echo "API_FOOTBALL_BASE_URL: $API_FOOTBALL_BASE_URL"
           echo "API_FOOTBALL_API_KEY: $API_FOOTBALL_API_KEY"
+          echo "DOTENV_KEY: $DOTENV_KEY"
 
       - name: Install dependencies
         run: yarn
@@ -44,7 +41,7 @@ jobs:
         run: yarn build
 
       - name: Test
-        run: yarn test
+        run: DOTENV_KEY=$DOTENV_KEY yarn test
 
       - name: Test e2e
         run: yarn test:e2e
