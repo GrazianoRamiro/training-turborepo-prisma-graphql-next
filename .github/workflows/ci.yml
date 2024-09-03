@@ -31,6 +31,11 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
+      - name: Print environment variables
+        run: |
+          echo "API_FOOTBALL_BASE_URL: $API_FOOTBALL_BASE_URL"
+          echo "API_FOOTBALL_API_KEY: $API_FOOTBALL_API_KEY"
+
       - name: Install dependencies
         run: yarn
 
