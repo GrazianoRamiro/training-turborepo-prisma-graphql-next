@@ -8,6 +8,10 @@ class FootballService {
   axiosInstance: AxiosInstance;
 
   constructor() {
+    console.log('CONSTRUCTOR BUILDING HERE');
+    console.log('URL', process.env.API_FOOTBALL_BASE_URL);
+    console.log('KEY', process.env.API_FOOTBALL_API_KEY);
+
     this.axiosInstance = axios.create({
       baseURL: process.env.API_FOOTBALL_BASE_URL,
       timeout: 5000,
