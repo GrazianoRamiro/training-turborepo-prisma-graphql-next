@@ -9,7 +9,7 @@ if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
 } else {
   console.log('ENV VARS 1', process.env);
-  dotenv.config();
+  dotenv.config({ debug: true });
   console.log('ENV VARS 2', process.env);
   console.log('Jest URL', process.env.API_FOOTBALL_BASE_URL);
   console.log('Jest KEY', process.env.API_FOOTBALL_API_KEY);
