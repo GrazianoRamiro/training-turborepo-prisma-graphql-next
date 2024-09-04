@@ -1,4 +1,8 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["tailwindcss"]
+  "cSpell.words": [
+    "Chakra",
+    "Codegen",
+    "tailwindcss"
+  ]
 }
