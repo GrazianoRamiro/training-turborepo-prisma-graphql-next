@@ -6,6 +6,7 @@ module.exports = {
   parserOptions: {
     project: true,
   },
+  ignorePatterns: ['app/graphql/__generated__'],
   overrides: [
     {
       files: ['*.js', '*.mjs'],
