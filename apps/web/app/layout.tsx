@@ -4,6 +4,8 @@ import localFont from 'next/font/local'
 import '@repo/ui/styles'
 import './globals.css'
 
+import ClientProviders from './providers/client.providers'
+
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
@@ -25,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ClientProviders>{children}</ClientProviders>
+      </body>
     </html>
   )
 }
