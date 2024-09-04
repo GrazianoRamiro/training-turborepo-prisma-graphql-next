@@ -20,8 +20,18 @@ type Season {
   id: Float!
 }
 
+type Country {
+  id: Float!
+  name: String!
+  code: String
+  flag: String
+}
+
 type League {
   id: Float!
+  name: String!
+  logo: String!
+  country: Country!
 }
 
 type Team {
@@ -32,14 +42,6 @@ type Player {
   id: Float!
 }
 
-type Match {
-  id: Float!
-}
-
-type MatchEvent {
-  id: Float!
-}
-
 type Query {
   users: [User!]!
   user(id: Int!): User!
@@ -47,6 +49,6 @@ type Query {
   leagues: [League!]!
   teams: [Team!]!
   players: [Player!]!
-  matches: [Match!]!
-  matchEvents: [MatchEvent!]!
+  countries: [Country!]!
+  country(id: Int!): Country!
 }

@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
     types: [opened, synchronize]
 
@@ -11,10 +11,8 @@ jobs:
     name: Build and Test
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    # To use Remote Caching, uncomment the next lines. https://turbo.build/repo/docs/guides/ci-vendors/github-actions
-    # env:
-    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-    #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    env:
+      DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
 
     steps:
       - name: Check out code
@@ -26,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "yarn"
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn

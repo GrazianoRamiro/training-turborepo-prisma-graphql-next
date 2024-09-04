@@ -5,6 +5,7 @@ import { Team as DatabaseTeam } from '@repo/db';
 export class Team implements DatabaseTeam {
   @Field()
   id: number;
+  code: string;
   name: string;
   createdAt: Date;
   updatedAt: Date;

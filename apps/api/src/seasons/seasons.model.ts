@@ -5,9 +5,10 @@ import { Season as DatabaseSeason } from '@repo/db';
 export class Season implements DatabaseSeason {
   @Field()
   id: number;
-  name: string;
-  dateFrom: Date;
-  dateTo: Date;
+  year: number;
+  start: Date;
+  end: Date;
+  current: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

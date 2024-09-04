@@ -11,7 +11,9 @@ export class LeaguesService {
 
   findAll(): Promise<League[]> {
     try {
-      return this.databaseService.client.league.findMany();
+      return this.databaseService.client.league.findMany({
+        include: { country: true },
+      });
     } catch (error) {
       this.logger.error(leaguesErrorMessages.LEAGUES_NOT_FOUND, error);
 
