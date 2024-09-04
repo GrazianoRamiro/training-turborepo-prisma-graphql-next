@@ -16,6 +16,8 @@ import * as types from './graphql'
 const documents = {
   'query GET_COUNTRIES {\n  countries {\n    id\n    name\n    code\n    flag\n  }\n}':
     types.Get_CountriesDocument,
+  'query GET_LEAGUES {\n  leagues {\n    id\n    name\n    logo\n    country {\n      id\n      name\n      code\n    }\n  }\n}':
+    types.Get_LeaguesDocument,
 }
 
 /**
@@ -38,6 +40,12 @@ export function gql(source: string): unknown
 export function gql(
   source: 'query GET_COUNTRIES {\n  countries {\n    id\n    name\n    code\n    flag\n  }\n}'
 ): (typeof documents)['query GET_COUNTRIES {\n  countries {\n    id\n    name\n    code\n    flag\n  }\n}']
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: 'query GET_LEAGUES {\n  leagues {\n    id\n    name\n    logo\n    country {\n      id\n      name\n      code\n    }\n  }\n}'
+): (typeof documents)['query GET_LEAGUES {\n  leagues {\n    id\n    name\n    logo\n    country {\n      id\n      name\n      code\n    }\n  }\n}']
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {}

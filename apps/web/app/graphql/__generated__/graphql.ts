@@ -97,6 +97,19 @@ export type Get_CountriesQuery = {
   }>
 }
 
+export type Get_LeaguesQueryVariables = Exact<{ [key: string]: never }>
+
+export type Get_LeaguesQuery = {
+  __typename?: 'Query'
+  leagues: Array<{
+    __typename?: 'League'
+    id: number
+    name: string
+    logo: string
+    country: { __typename?: 'Country'; id: number; name: string; code?: string | null }
+  }>
+}
+
 export const Get_CountriesDocument = {
   kind: 'Document',
   definitions: [
@@ -125,3 +138,42 @@ export const Get_CountriesDocument = {
     },
   ],
 } as unknown as DocumentNode<Get_CountriesQuery, Get_CountriesQueryVariables>
+export const Get_LeaguesDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'GET_LEAGUES' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'leagues' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'logo' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'country' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'code' } },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<Get_LeaguesQuery, Get_LeaguesQueryVariables>
