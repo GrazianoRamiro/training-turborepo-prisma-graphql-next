@@ -8,9 +8,9 @@ import Link from 'next/link'
 
 import { Box, Container, Flex } from '@repo/ui'
 
+import { Logo } from './components/Logo.component'
+import { Menu } from './components/menu/Menu.component'
 import ClientProviders from './providers/client.providers'
-import { Logo } from './shared/Logo.component'
-import { Menu } from './shared/menu/Menu.component'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
