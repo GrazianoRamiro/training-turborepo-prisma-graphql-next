@@ -14,12 +14,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.11.6",
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "@repo/ui": "*",
-    "framer-motion": "^11.5.2",
     "graphql": "^16.9.0",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
