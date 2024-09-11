@@ -10,7 +10,7 @@ import { Box, Container, Flex } from '@repo/ui'
 
 import ClientProviders from './providers/client.providers'
 import { Logo } from './shared/Logo.component'
-import { Menu } from './shared/Menu.component'
+import { Menu } from './shared/menu/Menu.component'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',

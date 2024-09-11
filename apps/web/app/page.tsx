@@ -1,7 +1,7 @@
 import { Box } from '@repo/ui'
 
-import { Header } from './shared/Header.component'
-import { HeaderAction } from './shared/HeaderAction.component'
+import { Header } from './shared/header/Header.component'
+import { HeaderAction } from './shared/header/HeaderAction.component'
 
 export default function Home() {
   return (
