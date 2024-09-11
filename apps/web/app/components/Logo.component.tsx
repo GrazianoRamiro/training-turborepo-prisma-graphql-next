@@ -18,8 +18,7 @@ export function Logo() {
       <Image
         src="/logo.jpg"
         alt="Logo"
-        objectFit="contain"
-        layout="fill"
+        fill
         priority
       />
     </Box>
