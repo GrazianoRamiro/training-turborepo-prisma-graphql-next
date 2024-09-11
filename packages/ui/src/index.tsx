@@ -13,3 +13,4 @@ export {
 export { MdEmojiEvents as EventIcon, MdPublic as PublicIcon } from 'react-icons/md'
 export { FaFlag as FlagIcon } from 'react-icons/fa6'
 export { HiUsers as UsersIcon } from 'react-icons/hi'
+export { ImArrowLeft as ArrowLeftIcon, ImArrowRight as ArrowRightIcon } from 'react-icons/im'
