@@ -5,7 +5,7 @@
   "exports": {
     "./styles": "./styles.css",
     ".": "./src/index.ts",
-    "./components": "./src/components/*"
+    "./components": "./src/components/index.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
