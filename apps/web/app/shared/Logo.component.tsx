@@ -5,7 +5,6 @@ import { Box } from '@repo/ui'
 export function Logo() {
   return (
     <Box
-      mt="2em"
       mb="0.5em"
       width="45%"
       position="relative"

@@ -6,7 +6,7 @@ import './globals.css'
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { Box, Flex } from '@repo/ui'
+import { Box, Container, Flex } from '@repo/ui'
 
 import ClientProviders from './providers/client.providers'
 import { Logo } from './shared/Logo.component'
@@ -47,21 +47,26 @@ export default function RootLayout({
         style={{ background: "url('/background.jpg')" }}
       >
         <ClientProviders>
-          <Logo />
-
-          <Flex
-            justifyContent="space-between"
-            alignItems="stretch"
+          <Container
+            maxW="980px"
+            mt="2em"
           >
-            <Box
-              flexGrow="1"
-              maxWidth="150px"
-            >
-              <Menu />
-            </Box>
+            <Logo />
 
-            <Box flexGrow="5">{children}</Box>
-          </Flex>
+            <Flex
+              justifyContent="space-between"
+              alignItems="stretch"
+            >
+              <Box
+                flexGrow="1"
+                maxWidth="150px"
+              >
+                <Menu />
+              </Box>
+
+              <Box flexGrow="5">{children}</Box>
+            </Flex>
+          </Container>
         </ClientProviders>
       </body>
     </html>
