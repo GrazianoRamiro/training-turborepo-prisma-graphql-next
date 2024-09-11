@@ -1,7 +1,6 @@
 'use client'
 
-import { Image } from '@chakra-ui/next-js'
-import { Card, CardBody, Flex, SimpleGrid, Text } from '@chakra-ui/react'
+import { Card, CardBody, Flex, NextImage, SimpleGrid, Text } from '@repo/ui'
 
 import { League } from '../graphql/__generated__/graphql'
 
@@ -20,7 +19,7 @@ export default function LeaguesList({ leagues }: { leagues: Array<League> }) {
               justifyContent="space-between"
             >
               <Text>{league.name}</Text>
-              <Image
+              <NextImage
                 src={league.logo}
                 alt={`${league.name} logo`}
                 width={10}

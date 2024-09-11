@@ -1,7 +1,6 @@
 'use client'
 
-import { Image } from '@chakra-ui/next-js'
-import { Card, CardBody, Flex, SimpleGrid, Text } from '@chakra-ui/react'
+import { Card, CardBody, Flex, NextImage, SimpleGrid, Text } from '@repo/ui'
 
 import { Country } from '../graphql/__generated__/graphql'
 
@@ -21,7 +20,7 @@ export default function CountriesList({ countries }: { countries: Array<Country>
             >
               <Text>{country.name}</Text>
               {country.flag && (
-                <Image
+                <NextImage
                   src={country.flag}
                   alt={`${country.name} flag`}
                   width={10}
