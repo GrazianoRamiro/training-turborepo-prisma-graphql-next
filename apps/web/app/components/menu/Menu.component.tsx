@@ -1,5 +1,6 @@
 'use client'
 
+import { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -131,8 +132,8 @@ export function Menu() {
         mb="1em"
       />
 
-      {menus.map(menu => (
-        <>
+      {menus.map((menu, index) => (
+        <Fragment key={index}>
           <ListItem
             bg="brand.darkGreenShade5"
             color="brand.vibrantGreen"
@@ -156,8 +157,9 @@ export function Menu() {
           </ListItem>
 
           <List>
-            {menu.items.map((item: { name: string; img?: string }) => (
+            {menu.items.map((item: { name: string; img?: string }, index) => (
               <ListItem
+                key={index}
                 _odd={{ bg: 'brand.darkGreenShade3' }}
                 _even={{ bg: 'brand.darkGreenShade4' }}
                 display="flex"
@@ -177,7 +179,7 @@ export function Menu() {
               </ListItem>
             ))}
           </List>
-        </>
+        </Fragment>
       ))}
 
       <ItemButton
