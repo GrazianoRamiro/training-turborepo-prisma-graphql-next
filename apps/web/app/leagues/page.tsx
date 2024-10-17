@@ -3,9 +3,13 @@ import { apolloClient } from '../graphql/apollo.client'
 import LeaguesList from './leagues-list.component'
 
 export default async function LeaguesPage() {
-  const { data } = await apolloClient.query<Get_LeaguesQuery>({
-    query: Get_LeaguesDocument,
-  })
+  try {
+    const { data } = await apolloClient.query<Get_LeaguesQuery>({
+      query: Get_LeaguesDocument,
+    })
 
-  return <LeaguesList leagues={data.leagues} />
+    return <LeaguesList leagues={data.leagues || []} />
+  } catch (err) {
+    return <LeaguesList leagues={[]} />
+  }
 }

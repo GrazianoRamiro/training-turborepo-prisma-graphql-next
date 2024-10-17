@@ -3,9 +3,13 @@ import { apolloClient } from '../graphql/apollo.client'
 import CountriesList from './countries-list.component'
 
 export default async function CountriesPage() {
-  const { data } = await apolloClient.query<Get_CountriesQuery>({
-    query: Get_CountriesDocument,
-  })
+  try {
+    const { data } = await apolloClient.query<Get_CountriesQuery>({
+      query: Get_CountriesDocument,
+    })
 
-  return <CountriesList countries={data.countries} />
+    return <CountriesList countries={data.countries || []} />
+  } catch (err) {
+    return <CountriesList countries={[]} />
+  }
 }
