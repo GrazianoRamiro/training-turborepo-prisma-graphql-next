@@ -12,7 +12,10 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     env:
-      DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+      API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
+      API_GRAPHQL_BASE_URL: ${{ secrets.API_GRAPHQL_BASE_URL }}
+      API_FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_API_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
       - name: Check out code
