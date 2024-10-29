@@ -4,6 +4,11 @@ import { footballService } from '../services/api-football.service';
 describe('LeaguesService', () => {
   describe('Integration Tests', () => {
     it('should fetch leagues successfully from the real API', async () => {
+      if (!process.env.API_FOOTBALL_BASE_URL) {
+        console.log('Skipping test: API_FOOTBALL_BASE_URL not set');
+        return;
+      }
+
       const leagues = await leaguesService.fetchLeagues();
       expect(leagues).toBeDefined();
       expect(Array.isArray(leagues)).toBe(true);

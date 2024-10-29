@@ -1,32 +1,33 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [".env", "tsconfig.json"],
-  "globalEnv": ["NODE_ENV", "DATABASE_URL", "DOTENV_KEY"],
+  "globalDependencies": ["tsconfig.json"],
+  "globalEnv": ["NODE_ENV"],
   "tasks": {
+    "db:generate": {
+      "env": ["DATABASE_URL"],
+      "cache": false
+    },
+    "db:push": {
+      "env": ["DATABASE_URL"],
+      "cache": false
+    },
     "build": {
+      "env": ["API_GRAPHQL_BASE_URL"],
       "dependsOn": ["^db:generate", "^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"],
-      "env": ["NODE_ENV"]
-    },
-    "lint:fix": {
-      "dependsOn": ["^lint:fix"]
     },
     "dev": {
       "dependsOn": ["^db:generate", "^@repo/db#build"],
       "cache": false,
       "persistent": true
     },
-    "test": {},
-    "test:e2e": {},
-    "db:generate": {
-      "cache": false
+    "lint": {
+      "dependsOn": ["^lint"]
     },
-    "db:push": {
-      "cache": false
-    }
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"]
+    },
+    "test": {},
+    "test:e2e": {}
   }
 }

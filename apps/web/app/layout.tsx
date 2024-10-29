@@ -1,8 +1,16 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 
-import '@repo/ui/styles'
 import './globals.css'
+
+import Head from 'next/head'
+import Link from 'next/link'
+
+import { Box, Container, Flex } from '@repo/ui'
+
+import { Logo } from './components/Logo.component'
+import { Menu } from './components/menu/Menu.component'
+import ClientProviders from './providers/client.providers'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -25,7 +33,42 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <Head>
+        <Link
+          rel="preload"
+          href="/background.jpg"
+          as="image"
+          prefetch
+        />
+      </Head>
+
+      <body
+        className={`${geistSans.variable} ${geistMono.variable}`}
+        style={{ background: "url('/background.jpg')" }}
+      >
+        <ClientProviders>
+          <Container
+            maxW="980px"
+            mt="2em"
+          >
+            <Logo />
+
+            <Flex
+              justifyContent="space-between"
+              alignItems="stretch"
+            >
+              <Box
+                flexGrow="1"
+                maxWidth="150px"
+              >
+                <Menu />
+              </Box>
+
+              <Box flexGrow="5">{children}</Box>
+            </Flex>
+          </Container>
+        </ClientProviders>
+      </body>
     </html>
   )
 }

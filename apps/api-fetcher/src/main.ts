@@ -6,7 +6,7 @@ if (process.env.CI) {
     path: path.resolve(__dirname, '../../../.env.vault'),
   });
 } else {
-  dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+  dotenv.config();
 }
 
 import { leaguesService } from './services/leagues.service';
